@@ -72,15 +72,20 @@ def main():
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
-    with open(dir_path+'/csv/mean-sentiment.csv', 'a', newline="") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow([today, meanSentiment])
+    with open(dir_path+'/csv/mean-sentiment.csv', 'r+', newline="") as csvfile:
+        if today not in csvfile.read():
+            print("Writing mean sentiment")
+            writer = csv.writer(csvfile)
+            writer.writerow([today, meanSentiment])
 
     with open(dir_path+'/csv/site-mean-sentiment.csv', 'r+', newline="") as csvfile:
-        rows = [[today]+row for row in csv.reader(csvfile, delimiter=',')][1:]
-        csvfile.seek(0)
-        csvfile.truncate()
-        writer = csv.writer(csvfile)
-        writer.writerow(["date"]+sites)
-        writer.writerows(rows)
-        writer.writerow([today]+means)
+        print(csvfile.read())
+        if today not in csvfile.read():
+            print("Writing per site mean sentiment")
+            rows = [[today]+row for row in csv.reader(csvfile, delimiter=',')][1:]
+            csvfile.seek(0)
+            csvfile.truncate()
+            writer = csv.writer(csvfile)
+            writer.writerow(["date"]+sites)
+            writer.writerows(rows)
+            writer.writerow([today]+means)
