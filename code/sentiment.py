@@ -86,6 +86,6 @@ def main():
             csvfile.truncate()
             writer = csv.writer(csvfile)
             writer.writerow(["date"]+sites)
-            writer.writerows(rows)
+            writer.writerows(list(rows))
             writer.writerow([today]+means)
             
