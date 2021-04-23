@@ -79,7 +79,6 @@ def main():
             writer.writerow([today, meanSentiment])
 
     with open(dir_path+'/csv/site-mean-sentiment.csv', 'r+', newline="") as csvfile:
-        print(csvfile.read())
         if today not in csvfile.read():
             print("Writing per site mean sentiment")
             rows = [[today]+row for row in csv.reader(csvfile, delimiter=',')][1:]
