@@ -47,5 +47,3 @@ def plotPerSiteSentiment():
 def main():
     plotMeanSentiment()
     plotPerSiteSentiment()
-
-plotPerSiteSentiment()
