@@ -7,5 +7,5 @@ World news sentiment data, updated at 07:00 daily.
 ### Overall mean sentiment
 ![](https://github.com/samuelezraberry/news-sentiment-data/blob/main/code/img/daily-sentiment-graph.png?raw=true)
 
-### Per-site sentiment
+### Per site sentiment
 ![](https://github.com/samuelezraberry/news-sentiment-data/blob/main/code/img/daily-site-sentiment-graph.png?raw=true)
