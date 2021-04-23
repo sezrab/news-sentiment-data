@@ -88,3 +88,4 @@ def main():
             writer.writerow(["date"]+sites)
             writer.writerows(rows)
             writer.writerow([today]+means)
+            

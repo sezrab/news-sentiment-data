@@ -8,3 +8,4 @@ def update():
     os.system("git add .")  # stage changes
     os.system("git commit -m \"Automatic update (gitControl.py)\"")  # commit
     os.system("git push")  # push changes
+    

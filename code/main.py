@@ -3,5 +3,5 @@ import gitControl
 import sentiment
 
 sentiment.main()
-chart.plotMeanSentiment()
+chart.main()
 gitControl.update()
