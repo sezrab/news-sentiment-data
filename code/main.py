@@ -4,9 +4,12 @@ import sentiment
 
 while True:
     try:
+        print("sentiment.main()")
         sentiment.main()
+        print("chart.main()")
         chart.main()
-        #gitControl.update()
+        print("gitControl.update()")
+        gitControl.update()
         break
-    except:
-        pass
+    except Exception as e:
+        print(e)

@@ -55,6 +55,7 @@ sites = ["BBC News", "Sky", "Reuters",
 
 
 def main():
+
     news = [bbc(), sky(), reuters(), reddit(
         "https://www.reddit.com/r/worldnews/hot.json"), "https://www.reddit.com/r/news/hot.json"]
 
@@ -65,7 +66,6 @@ def main():
         for title in site:
             total += TextBlob(title).sentiment.polarity
         means.append(total/len(site))
-
 
     meanSentiment = sum(means)/len(means)
     today = date.today().strftime("%d/%m/%Y")
@@ -83,9 +83,21 @@ def main():
 
     if today not in str(rows):
         with open(dir_path+'/csv/site-mean-sentiment.csv', 'w', newline="") as csvfile:
-                print("Writing per site mean sentiment")
-                writer = csv.writer(csvfile)
-                writer.writerow(["date"]+sites)
-                writer.writerows(rows[1:])
-                writer.writerow([today]+means)
-            
+            print("Writing per site mean sentiment")
+            writer = csv.writer(csvfile)
+            writer.writerow(["date"]+sites)
+            writer.writerows(rows[1:])
+            writer.writerow([today]+means)
+
+    time = date.today().strftime("%m/%d/%Y, %H:%M:%S")
+    with open(dir_path+"/template.md", "r") as template:
+        templateText = template.read()
+
+    text = templateText.replace("%UPDATED%", time).replace(
+        "%SOURCES%", ', '.join(sites))
+
+    with open(dir_path+"/../docs/index.md", "w") as index:
+        index.write(text)
+
+    with open(dir_path+"/../README.md", "w") as readme:
+        readme.write(text)

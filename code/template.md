@@ -3,8 +3,8 @@
 World news sentiment data, updated at 07:00 daily.
 
 **Start:** 22/04/2021<br>
-**Updated:** 04/23/2021, 00:00:00<br>
-**Sources:** BBC News, Sky, Reuters, r/worldnews, r/news
+**Updated:** %UPDATED%<br>
+**Sources:** %SOURCES%
 
 <img src="https://user-images.githubusercontent.com/25552804/115932698-55adef00-a485-11eb-82bb-2265c0821ca0.png" width="20%" height="20%">
 

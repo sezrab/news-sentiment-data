@@ -4,6 +4,7 @@ import csv
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
+
 def plotMeanSentiment():
     x = []
     y = []
@@ -23,12 +24,13 @@ def plotMeanSentiment():
     plt.tight_layout()
     plt.savefig(dir_path+'/img/daily-sentiment-graph.png')
 
+
 def plotPerSiteSentiment():
     plt.clf()
     with open(dir_path+'/csv/site-mean-sentiment.csv', 'r') as csvfile:
         plots = list(csv.reader(csvfile, delimiter=','))
-        headers=plots[0]
-        for i in range(2,len(headers)+1):
+        headers = plots[0]
+        for i in range(2, len(headers)+1):
             x = []
             y = []
             for row in plots[1:]:
@@ -43,6 +45,7 @@ def plotPerSiteSentiment():
         plt.xticks(range(0, len(x), len(x)//5))
     plt.tight_layout()
     plt.savefig(dir_path+'/img/daily-site-sentiment-graph.png')
+
 
 def main():
     plotMeanSentiment()
