@@ -1,8 +1,10 @@
 # Sentiment Data
 
 World news sentiment data, updated at 07:00 daily.
-_Begins:_ 22/04/2021
-_Updated:_ {UPDATED}
+
+**Start:** 22/04/2021<br>
+**Updated:** {UPDATED}<br>
+**Sources:** {SOURCES}
 
 <img src="https://user-images.githubusercontent.com/25552804/115932698-55adef00-a485-11eb-82bb-2265c0821ca0.png" width="20%" height="20%">
 
