@@ -2,6 +2,11 @@ import chart
 import gitControl
 import sentiment
 
-sentiment.main()
-chart.main()
-gitControl.update()
+while True:
+    try:
+        sentiment.main()
+        chart.main()
+        gitControl.update()
+        break
+    except:
+        pass
