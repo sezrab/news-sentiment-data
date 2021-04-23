@@ -14,7 +14,7 @@ def plotMeanSentiment():
         for row in plots:
             x.append(row[0])
             y.append(float(row[1]))
-            
+
     plt.clf()
     plt.plot(x, y, label="Mean daily sentiment")
     plt.xlabel('Date')
@@ -33,13 +33,13 @@ def plotPerSiteSentiment():
         plots = csv.reader(csvfile, delimiter=',')
         headers=next(plots)
 
-        first = True
         for i in range(2,len(headers)+1):
             x = []
             y = []
             for row in plots:
                 x.append(row[0])
                 y.append(float(row[i]))
+            print(headers[i-1],x,y)
             plt.plot(x, y, label=headers[i-1])
             plt.legend()
 
