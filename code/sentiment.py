@@ -3,7 +3,7 @@ import json
 from textblob import TextBlob
 from bs4 import BeautifulSoup
 import csv
-from datetime import date
+from datetime import datetime
 import os
 
 ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36"
@@ -68,7 +68,7 @@ def main():
         means.append(total/len(site))
 
     meanSentiment = sum(means)/len(means)
-    today = date.today().strftime("%d/%m/%Y")
+    today = datetime.now().strftime("%d/%m/%Y")
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -89,7 +89,7 @@ def main():
             writer.writerows(rows[1:])
             writer.writerow([today]+means)
 
-    time = date.today().strftime("%m/%d/%Y, %H:%M:%S")
+    time = datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
     with open(dir_path+"/template.md", "r") as template:
         templateText = template.read()
 
