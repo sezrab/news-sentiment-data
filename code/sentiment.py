@@ -4,7 +4,7 @@ from textblob import TextBlob
 from bs4 import BeautifulSoup
 import csv
 from datetime import date
-
+import os
 
 ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36"
 headers = {"User-Agent": ua}
@@ -66,14 +66,17 @@ def main():
             total += TextBlob(title).sentiment.polarity
         means.append(total/len(site))
 
+
     meanSentiment = sum(means)/len(means)
     today = date.today().strftime("%d/%m/%Y")
 
-    with open('csv/mean-sentiment.csv', 'a', newline="") as csvfile:
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+
+    with open(dir_path+'/csv/mean-sentiment.csv', 'a', newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([today, meanSentiment])
 
-    with open('csv/site-mean-sentiment.csv', 'r+', newline="") as csvfile:
+    with open(dir_path+'/csv/site-mean-sentiment.csv', 'r+', newline="") as csvfile:
         rows = [[today]+row for row in csv.reader(csvfile, delimiter=',')][1:]
         csvfile.seek(0)
         csvfile.truncate()

@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
+import os
 import csv
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def plotMeanSentiment():
     # make graph
     x = []
     y = []
 
-    with open('csv/mean-sentiment.csv', 'r') as csvfile:
+    with open(dir_path+'/csv/mean-sentiment.csv', 'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             x.append(row[0])
@@ -20,4 +22,4 @@ def plotMeanSentiment():
     if len(x) > 7:
         plt.xticks(range(0, len(x), len(x)//5))
     plt.tight_layout()
-    plt.savefig('img/daily-sentiment-graph.png')
+    plt.savefig(dir_path+'/img/daily-sentiment-graph.png')
