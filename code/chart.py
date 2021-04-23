@@ -14,6 +14,7 @@ def plotMeanSentiment():
         for row in plots:
             x.append(row[0])
             y.append(float(row[1]))
+            
     plt.clf()
     plt.plot(x, y, label="Mean daily sentiment")
     plt.xlabel('Date')
