@@ -81,11 +81,11 @@ def main():
     with open(dir_path+'/csv/site-mean-sentiment.csv', 'r', newline="") as csvfile:
         rows = list(csv.reader(csvfile, delimiter=','))
 
-    with open(dir_path+'/csv/site-mean-sentiment.csv', 'w', newline="") as csvfile:
-        if today not in str(rows):
-            print("Writing per site mean sentiment")
-            writer = csv.writer(csvfile)
-            writer.writerow(["date"]+sites)
-            writer.writerows(rows[1:])
-            writer.writerow([today]+means)
+    if today not in str(rows):
+        with open(dir_path+'/csv/site-mean-sentiment.csv', 'w', newline="") as csvfile:
+                print("Writing per site mean sentiment")
+                writer = csv.writer(csvfile)
+                writer.writerow(["date"]+sites)
+                writer.writerows(rows[1:])
+                writer.writerow([today]+means)
             

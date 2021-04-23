@@ -6,7 +6,7 @@ while True:
     try:
         sentiment.main()
         chart.main()
-        gitControl.update()
+        #gitControl.update()
         break
     except:
         pass
