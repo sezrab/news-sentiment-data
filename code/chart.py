@@ -5,10 +5,8 @@ import csv
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def plotMeanSentiment():
-    # make graph
     x = []
     y = []
-
     with open(dir_path+'/csv/mean-sentiment.csv', 'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
@@ -26,20 +24,16 @@ def plotMeanSentiment():
     plt.savefig(dir_path+'/img/daily-sentiment-graph.png')
 
 def plotPerSiteSentiment():
-    # make graph
-
     plt.clf()
     with open(dir_path+'/csv/site-mean-sentiment.csv', 'r') as csvfile:
-        plots = csv.reader(csvfile, delimiter=',')
-        headers=next(plots)
-
+        plots = list(csv.reader(csvfile, delimiter=','))
+        headers=plots[0]
         for i in range(2,len(headers)+1):
             x = []
             y = []
-            for row in plots:
+            for row in plots[1:]:
                 x.append(row[0])
-                y.append(float(row[i]))
-            print(headers[i-1],x,y)
+                y.append(float(row[i-1]))
             plt.plot(x, y, label=headers[i-1])
             plt.legend()
 
@@ -53,3 +47,5 @@ def plotPerSiteSentiment():
 def main():
     plotMeanSentiment()
     plotPerSiteSentiment()
+
+plotPerSiteSentiment()
