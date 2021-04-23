@@ -49,7 +49,6 @@ def reddit(url):
     titles = [post["data"]["title"] for post in jsonData["data"]["children"]]
     return titles
 
-
 sites = ["BBC News", "Sky", "Reuters",
          "r/worldnews", "r/news"]  # for csv headers
 
@@ -57,7 +56,7 @@ sites = ["BBC News", "Sky", "Reuters",
 def main():
 
     news = [bbc(), sky(), reuters(), reddit(
-        "https://www.reddit.com/r/worldnews/hot.json"), "https://www.reddit.com/r/news/hot.json"]
+        "https://www.reddit.com/r/worldnews/hot.json"), reddit("https://www.reddit.com/r/news/hot.json")]
 
     means = []
 
