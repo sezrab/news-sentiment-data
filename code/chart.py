@@ -19,7 +19,7 @@ def plotMeanSentiment():
     plt.xlabel('Date')
     plt.ylabel('Sentiment')
     plt.legend()
-    if len(x) > 7:
+    if len(x) > 5:
         plt.xticks(range(0, len(x), len(x)//5))
     plt.tight_layout()
     plt.savefig(dir_path+'/img/daily-sentiment-graph.png')
@@ -41,7 +41,7 @@ def plotPerSiteSentiment():
 
     plt.xlabel('Date')
     plt.ylabel('Sentiment')
-    if len(x) > 7:
+    if len(x) > 5:
         plt.xticks(range(0, len(x), len(x)//5))
     plt.tight_layout()
     plt.savefig(dir_path+'/img/daily-site-sentiment-graph.png')
